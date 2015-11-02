@@ -2,9 +2,7 @@
 lock '3.4.0'
 
 set :application, 'Sandbox'
-set :scm, :none
-set :repository, '.'
-set :deploy_via, :copy
+set :repo_url, 'git@github.com:yock/sandbox.git'
 
 namespace :deploy do
 
