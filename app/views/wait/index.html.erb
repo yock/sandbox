@@ -1,6 +1,14 @@
-<ul>
-  <li>Delay length: <%= @delay %></li>
-  <li>Start time: <%= @start_time %></li>
-  <li>End time: <%= @end_time %></li>
-  <li>Actual delay: <%= actual_delay %> seconds</li>
-</ul>
+<% if delayed_response? %>
+  <ul>
+    <li>Delay length: <%= @delay %></li>
+    <li>Start time: <%= @start_time %></li>
+    <li>End time: <%= @end_time %></li>
+    <li>Actual delay: <%= actual_delay %> seconds</li>
+  </ul>
+<% end %>
+
+<form action="/wait" method="get">
+  <label for="delay">Delay (in seconds)</label>
+  <%= number_field_tag 'delay', params[:delay] %>
+  <input type="submit">
+</form>
